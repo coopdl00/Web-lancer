@@ -1,0 +1,19 @@
+{
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "web-lancer-frontend-20190312114324-authRole",
+            "UnauthRoleArn": "arn:aws:iam::490891386845:role/web-lancer-frontend-20190312114324-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::490891386845:role/web-lancer-frontend-20190312114324-authRole",
+            "Region": "us-east-2",
+            "DeploymentBucketName": "web-lancer-frontend-20190312114324-deployment",
+            "UnauthRoleName": "web-lancer-frontend-20190312114324-unauthRole",
+            "StackName": "web-lancer-frontend-20190312114324",
+            "StackId": "arn:aws:cloudformation:us-east-2:490891386845:stack/web-lancer-frontend-20190312114324/54fef110-44ee-11e9-9eb7-0626229bfdda"
+        },
+        "categories": {
+            "auth": {
+                "cognitoa6906cc3": {}
+            }
+        }
+    }
+}

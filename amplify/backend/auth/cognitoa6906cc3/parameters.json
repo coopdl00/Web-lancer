@@ -1,0 +1,71 @@
+{
+    "identityPoolName": "cognitoa6906cc3_identitypool_a6906cc3",
+    "allowUnauthenticatedIdentities": false,
+    "thirdPartyAuth": false,
+    "lambdaLogPolicy": "cognitoa6906cc3_lambda_log_policy",
+    "openIdLambdaRoleName": "cognitoa6906cc3_openid_lambda_role",
+    "openIdRolePolicy": "cognitoa6906cc3_openid_pass_role_policy",
+    "openIdLambdaIAMPolicy": "cognitoa6906cc3_openid_lambda_iam_policy",
+    "openIdLogPolicy": "cognitoa6906cc3_openid_lambda_log_policy",
+    "userPoolName": "cognitoa6906cc3_userpool_a6906cc3",
+    "autoVerifiedAttributes": [
+        "email"
+    ],
+    "mfaConfiguration": "OFF",
+    "mfaTypes": [
+        "SMS Text Message"
+    ],
+    "roleName": "cognitoa6906cc3_sns-role",
+    "roleExternalId": "cognitoa6906cc3_role_external_id",
+    "policyName": "cognitoa6906cc3-sns-policy",
+    "smsAuthenticationMessage": "Your authentication code is {####}",
+    "smsVerificationMessage": "Your verification code is {####}",
+    "emailVerificationSubject": "Your verification code",
+    "emailVerificationMessage": "Your verification code is {####}",
+    "defaultPasswordPolicy": false,
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": [
+        "Requires Lowercase",
+        "Requires Uppercase",
+        "Requires Numbers",
+        "Requires Symbols"
+    ],
+    "requiredAttributes": [
+        "email"
+    ],
+    "userpoolClientName": "cognitoa6906cc3_app_client",
+    "userpoolClientGenerateSecret": true,
+    "userpoolClientRefreshTokenValidity": 30,
+    "userpoolClientReadAttributes": [
+        "email"
+    ],
+    "mfaLambdaRole": "cognitoa6906cc3_totp_lambda_role",
+    "mfaLambdaLogPolicy": "cognitoa6906cc3_totp_lambda_log_policy",
+    "mfaPassRolePolicy": "cognitoa6906cc3_totp_pass_role_policy",
+    "mfaLambdaIAMPolicy": "cognitoa6906cc3_totp_lambda_iam_policy",
+    "userpoolClientLambdaRole": "cognitoa6906cc3_userpoolclient_lambda_role",
+    "userpoolClientLogPolicy": "cognitoa6906cc3_userpoolclient_lambda_log_policy",
+    "userpoolClientLambdaPolicy": "cognitoa6906cc3_userpoolclient_lambda_iam_policy",
+    "userpoolClientSetAttributes": false,
+    "useDefault": "default",
+    "resourceName": "cognitoa6906cc3",
+    "authSelections": "identityPoolAndUserPool",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "unauthRoleArn": {
+        "Fn::GetAtt": [
+            "UnauthRole",
+            "Arn"
+        ]
+    }
+}
