@@ -1,0 +1,10 @@
+{
+    "AppSyncApiName": "webLancerBackend",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "AuthCognitoUserPoolId": {
+        "Fn::GetAtt": [
+            "authcognitoa6906cc3",
+            "Outputs.UserPoolId"
+        ]
+    }
+}

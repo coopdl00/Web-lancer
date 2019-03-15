@@ -1,29 +1,36 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { withAuthenticator } from 'aws-amplify-react'
-import Amplify from 'aws-amplify';
+import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
+import * as queries from './graphql/queries'
 import aws_exports from './aws-exports';
 Amplify.configure(aws_exports);
 
 class App extends Component {
+
+  state = {
+
+  }
+
+  componentDidMount = async () => {
+    await Auth.currentAuthenticatedUser()
+      .then(user => this.setState({ userInfo: user }))
+      .catch(err => this.setState({ error: err }))
+  }
+
+  todoMutation = async () => {
+    const newEvent = await API.graphql(graphqlOperation(queries.listUserss));
+    alert(JSON.stringify(newEvent));
+  }
+
+  test = () => {
+    console.log(this.state.userInfo)
+  }
+
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <button onClick={this.test}>Button</button>
       </div>
     );
   }

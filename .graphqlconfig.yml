@@ -1,0 +1,16 @@
+projects:
+  webLancerBackend:
+    schemaPath: src/graphql/schema.json
+    includes:
+      - src/graphql/**/*.js
+    excludes:
+      - ./amplify/**
+    extensions:
+      amplify:
+        codeGenTarget: javascript
+        generatedFileName: ''
+        docsFilePath: src/graphql
+        graphQLApiId: tjvpkna225d23lzoccwfagnkne
+      endpoints:
+        prod: >-
+          https://fszdvhcsi5buxpwa2act2dh75e.appsync-api.us-east-2.amazonaws.com/graphql

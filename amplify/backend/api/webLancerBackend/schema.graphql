@@ -1,0 +1,15 @@
+type users @model {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  email: String!
+  password: String!
+  technologies: [String]
+}
+
+type jobs @model {
+  id: ID!
+  title: String!
+  description: String!
+  technologies: [String]
+}
