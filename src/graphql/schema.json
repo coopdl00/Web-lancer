@@ -15,7 +15,7 @@
         "name" : "Query",
         "description" : null,
         "fields" : [ {
-          "name" : "getUsers",
+          "name" : "getTech",
           "description" : null,
           "args" : [ {
             "name" : "id",
@@ -33,20 +33,20 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "listUserss",
+          "name" : "listTechs",
           "description" : null,
           "args" : [ {
             "name" : "filter",
             "description" : null,
             "type" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelusersFilterInput",
+              "name" : "ModeltechFilterInput",
               "ofType" : null
             },
             "defaultValue" : null
@@ -71,7 +71,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "ModelusersConnection",
+            "name" : "ModeltechConnection",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -145,7 +145,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "users",
+        "name" : "tech",
         "description" : null,
         "fields" : [ {
           "name" : "id",
@@ -163,7 +163,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "firstName",
+          "name" : "name",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -178,52 +178,7 @@
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "lastName",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "email",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "password",
-          "description" : null,
-          "args" : [ ],
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "isDeprecated" : false,
-          "deprecationReason" : null
-        }, {
-          "name" : "technologies",
+          "name" : "users",
           "description" : null,
           "args" : [ ],
           "type" : {
@@ -262,7 +217,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "OBJECT",
-        "name" : "ModelusersConnection",
+        "name" : "ModeltechConnection",
         "description" : null,
         "fields" : [ {
           "name" : "items",
@@ -273,7 +228,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "OBJECT",
-              "name" : "users",
+              "name" : "tech",
               "ofType" : null
             }
           },
@@ -297,7 +252,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelusersFilterInput",
+        "name" : "ModeltechFilterInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -310,7 +265,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "firstName",
+          "name" : "name",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -319,34 +274,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "lastName",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringFilterInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "email",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringFilterInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "password",
-          "description" : null,
-          "type" : {
-            "kind" : "INPUT_OBJECT",
-            "name" : "ModelStringFilterInput",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "technologies",
+          "name" : "users",
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
@@ -362,7 +290,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelusersFilterInput",
+              "name" : "ModeltechFilterInput",
               "ofType" : null
             }
           },
@@ -375,7 +303,7 @@
             "name" : null,
             "ofType" : {
               "kind" : "INPUT_OBJECT",
-              "name" : "ModelusersFilterInput",
+              "name" : "ModeltechFilterInput",
               "ofType" : null
             }
           },
@@ -385,7 +313,7 @@
           "description" : null,
           "type" : {
             "kind" : "INPUT_OBJECT",
-            "name" : "ModelusersFilterInput",
+            "name" : "ModeltechFilterInput",
             "ofType" : null
           },
           "defaultValue" : null
@@ -672,6 +600,21 @@
           },
           "isDeprecated" : false,
           "deprecationReason" : null
+        }, {
+          "name" : "bidedBy",
+          "description" : null,
+          "args" : [ ],
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "isDeprecated" : false,
+          "deprecationReason" : null
         } ],
         "inputFields" : null,
         "interfaces" : [ ],
@@ -754,6 +697,15 @@
           },
           "defaultValue" : null
         }, {
+          "name" : "bidedBy",
+          "description" : null,
+          "type" : {
+            "kind" : "INPUT_OBJECT",
+            "name" : "ModelStringFilterInput",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
           "name" : "and",
           "description" : null,
           "type" : {
@@ -797,7 +749,7 @@
         "name" : "Mutation",
         "description" : null,
         "fields" : [ {
-          "name" : "createUsers",
+          "name" : "createTech",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -807,7 +759,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "CreateUsersInput",
+                "name" : "CreateTechInput",
                 "ofType" : null
               }
             },
@@ -815,13 +767,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "updateUsers",
+          "name" : "updateTech",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -831,7 +783,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "UpdateUsersInput",
+                "name" : "UpdateTechInput",
                 "ofType" : null
               }
             },
@@ -839,13 +791,13 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "deleteUsers",
+          "name" : "deleteTech",
           "description" : null,
           "args" : [ {
             "name" : "input",
@@ -855,7 +807,7 @@
               "name" : null,
               "ofType" : {
                 "kind" : "INPUT_OBJECT",
-                "name" : "DeleteUsersInput",
+                "name" : "DeleteTechInput",
                 "ofType" : null
               }
             },
@@ -863,7 +815,7 @@
           } ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -947,7 +899,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "CreateUsersInput",
+        "name" : "CreateTechInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -960,7 +912,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "firstName",
+          "name" : "name",
           "description" : null,
           "type" : {
             "kind" : "NON_NULL",
@@ -973,46 +925,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "lastName",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "email",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "password",
-          "description" : null,
-          "type" : {
-            "kind" : "NON_NULL",
-            "name" : null,
-            "ofType" : {
-              "kind" : "SCALAR",
-              "name" : "String",
-              "ofType" : null
-            }
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "technologies",
+          "name" : "users",
           "description" : null,
           "type" : {
             "kind" : "LIST",
@@ -1030,7 +943,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "UpdateUsersInput",
+        "name" : "UpdateTechInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1047,7 +960,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "firstName",
+          "name" : "name",
           "description" : null,
           "type" : {
             "kind" : "SCALAR",
@@ -1056,34 +969,7 @@
           },
           "defaultValue" : null
         }, {
-          "name" : "lastName",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "email",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "password",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "String",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "technologies",
+          "name" : "users",
           "description" : null,
           "type" : {
             "kind" : "LIST",
@@ -1101,7 +987,7 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "DeleteUsersInput",
+        "name" : "DeleteTechInput",
         "description" : null,
         "fields" : null,
         "inputFields" : [ {
@@ -1170,6 +1056,19 @@
             }
           },
           "defaultValue" : null
+        }, {
+          "name" : "bidedBy",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
         } ],
         "interfaces" : null,
         "enumValues" : null,
@@ -1223,6 +1122,19 @@
             }
           },
           "defaultValue" : null
+        }, {
+          "name" : "bidedBy",
+          "description" : null,
+          "type" : {
+            "kind" : "LIST",
+            "name" : null,
+            "ofType" : {
+              "kind" : "SCALAR",
+              "name" : "String",
+              "ofType" : null
+            }
+          },
+          "defaultValue" : null
         } ],
         "interfaces" : null,
         "enumValues" : null,
@@ -1250,34 +1162,34 @@
         "name" : "Subscription",
         "description" : null,
         "fields" : [ {
-          "name" : "onCreateUsers",
+          "name" : "onCreateTech",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onUpdateUsers",
+          "name" : "onUpdateTech",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
           "deprecationReason" : null
         }, {
-          "name" : "onDeleteUsers",
+          "name" : "onDeleteTech",
           "description" : null,
           "args" : [ ],
           "type" : {
             "kind" : "OBJECT",
-            "name" : "users",
+            "name" : "tech",
             "ofType" : null
           },
           "isDeprecated" : false,
@@ -1435,42 +1347,6 @@
         "possibleTypes" : null
       }, {
         "kind" : "INPUT_OBJECT",
-        "name" : "ModelBooleanFilterInput",
-        "description" : null,
-        "fields" : null,
-        "inputFields" : [ {
-          "name" : "ne",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        }, {
-          "name" : "eq",
-          "description" : null,
-          "type" : {
-            "kind" : "SCALAR",
-            "name" : "Boolean",
-            "ofType" : null
-          },
-          "defaultValue" : null
-        } ],
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "SCALAR",
-        "name" : "Boolean",
-        "description" : "Built-in Boolean",
-        "fields" : null,
-        "inputFields" : null,
-        "interfaces" : null,
-        "enumValues" : null,
-        "possibleTypes" : null
-      }, {
-        "kind" : "INPUT_OBJECT",
         "name" : "ModelFloatFilterInput",
         "description" : null,
         "fields" : null,
@@ -1567,6 +1443,42 @@
         "kind" : "SCALAR",
         "name" : "Float",
         "description" : "Built-in Float",
+        "fields" : null,
+        "inputFields" : null,
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "INPUT_OBJECT",
+        "name" : "ModelBooleanFilterInput",
+        "description" : null,
+        "fields" : null,
+        "inputFields" : [ {
+          "name" : "ne",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        }, {
+          "name" : "eq",
+          "description" : null,
+          "type" : {
+            "kind" : "SCALAR",
+            "name" : "Boolean",
+            "ofType" : null
+          },
+          "defaultValue" : null
+        } ],
+        "interfaces" : null,
+        "enumValues" : null,
+        "possibleTypes" : null
+      }, {
+        "kind" : "SCALAR",
+        "name" : "Boolean",
+        "description" : "Built-in Boolean",
         "fields" : null,
         "inputFields" : null,
         "interfaces" : null,

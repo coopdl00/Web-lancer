@@ -1,36 +1,27 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const createUsers = `mutation CreateUsers($input: CreateUsersInput!) {
-  createUsers(input: $input) {
+export const createTech = `mutation CreateTech($input: CreateTechInput!) {
+  createTech(input: $input) {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
-export const updateUsers = `mutation UpdateUsers($input: UpdateUsersInput!) {
-  updateUsers(input: $input) {
+export const updateTech = `mutation UpdateTech($input: UpdateTechInput!) {
+  updateTech(input: $input) {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
-export const deleteUsers = `mutation DeleteUsers($input: DeleteUsersInput!) {
-  deleteUsers(input: $input) {
+export const deleteTech = `mutation DeleteTech($input: DeleteTechInput!) {
+  deleteTech(input: $input) {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
@@ -40,6 +31,7 @@ export const createJobs = `mutation CreateJobs($input: CreateJobsInput!) {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;
@@ -49,6 +41,7 @@ export const updateJobs = `mutation UpdateJobs($input: UpdateJobsInput!) {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;
@@ -58,6 +51,7 @@ export const deleteJobs = `mutation DeleteJobs($input: DeleteJobsInput!) {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;

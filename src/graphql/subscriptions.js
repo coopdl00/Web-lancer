@@ -1,36 +1,27 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const onCreateUsers = `subscription OnCreateUsers {
-  onCreateUsers {
+export const onCreateTech = `subscription OnCreateTech {
+  onCreateTech {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
-export const onUpdateUsers = `subscription OnUpdateUsers {
-  onUpdateUsers {
+export const onUpdateTech = `subscription OnUpdateTech {
+  onUpdateTech {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
-export const onDeleteUsers = `subscription OnDeleteUsers {
-  onDeleteUsers {
+export const onDeleteTech = `subscription OnDeleteTech {
+  onDeleteTech {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
@@ -40,6 +31,7 @@ export const onCreateJobs = `subscription OnCreateJobs {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;
@@ -49,6 +41,7 @@ export const onUpdateJobs = `subscription OnUpdateJobs {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;
@@ -58,6 +51,7 @@ export const onDeleteJobs = `subscription OnDeleteJobs {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;

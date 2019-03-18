@@ -1,30 +1,24 @@
 // eslint-disable
 // this is an auto generated file. This will be overwritten
 
-export const getUsers = `query GetUsers($id: ID!) {
-  getUsers(id: $id) {
+export const getTech = `query GetTech($id: ID!) {
+  getTech(id: $id) {
     id
-    firstName
-    lastName
-    email
-    password
-    technologies
+    name
+    users
   }
 }
 `;
-export const listUserss = `query ListUserss(
-  $filter: ModelusersFilterInput
+export const listTechs = `query ListTechs(
+  $filter: ModeltechFilterInput
   $limit: Int
   $nextToken: String
 ) {
-  listUserss(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  listTechs(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      firstName
-      lastName
-      email
-      password
-      technologies
+      name
+      users
     }
     nextToken
   }
@@ -36,6 +30,7 @@ export const getJobs = `query GetJobs($id: ID!) {
     title
     description
     technologies
+    bidedBy
   }
 }
 `;
@@ -50,6 +45,7 @@ export const listJobss = `query ListJobss(
       title
       description
       technologies
+      bidedBy
     }
     nextToken
   }

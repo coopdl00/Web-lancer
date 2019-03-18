@@ -1,10 +1,7 @@
-type users @model {
+type tech @model {
   id: ID!
-  firstName: String!
-  lastName: String!
-  email: String!
-  password: String!
-  technologies: [String]
+  name: String!
+  users: [String]
 }
 
 type jobs @model {
@@ -12,4 +9,5 @@ type jobs @model {
   title: String!
   description: String!
   technologies: [String]
+  bidedBy: [String]
 }
