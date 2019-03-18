@@ -4,8 +4,8 @@ class JobTile extends Component {
 
   render() {
     return (
-      <div>
-        <p>test {this.props.job.name}</p>
+      <div className="colum">
+        <p>test {this.props.job.title}</p>
       </div>
     )
   }

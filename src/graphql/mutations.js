@@ -32,6 +32,7 @@ export const createJobs = `mutation CreateJobs($input: CreateJobsInput!) {
     description
     technologies
     bidedBy
+    postedDate
   }
 }
 `;
@@ -42,6 +43,7 @@ export const updateJobs = `mutation UpdateJobs($input: UpdateJobsInput!) {
     description
     technologies
     bidedBy
+    postedDate
   }
 }
 `;
@@ -52,6 +54,7 @@ export const deleteJobs = `mutation DeleteJobs($input: DeleteJobsInput!) {
     description
     technologies
     bidedBy
+    postedDate
   }
 }
 `;

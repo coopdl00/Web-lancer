@@ -1,7 +1,12 @@
 #Logo {
-  background-color: #393E45
+  background-color: #393E45;
 }
 
 #Logoimage {
-  width: 300px
+  width: 250px;
+}
+
+.colum {
+  width: 25%;
+  float: left;
 }

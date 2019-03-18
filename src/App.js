@@ -18,16 +18,14 @@ class App extends Component {
 
   componentDidMount = async () => {
     await this.getCurrentUserInformation()
-    const newEvent = await API.graphql(graphqlOperation(queries.listJobss))
-    await this.setState({
-      jobList: newEvent.data.listJobss.items
-    })
+    this.refreshList()
   }
 
   createJob = async () => {
     let obj = {
-      title: "Social Media Website",
-      description: "Test description"
+      title: "Social Media Website 6",
+      description: "Test description",
+      postedDate: Date.now()
     }
 
     const newEvent = await API.graphql(graphqlOperation(mutations.createJobs, {input: obj}))
@@ -42,9 +40,12 @@ class App extends Component {
 
   refreshList = async () => {
     const newEvent = await API.graphql(graphqlOperation(queries.listJobss))
+    let array = newEvent.data.listJobss.items
+    array.sort(function(a,b){return b.postedDate - a.postedDate})
     this.setState({
-      jobList: newEvent.data.listJobss.items
+      jobList: array
     })
+
   }
 
   render() {
@@ -57,8 +58,9 @@ class App extends Component {
         </div>
         <button onClick={this.refreshList} >Refresh Job List</button>
         <button onClick={this.createJob} >Post job</button>
-
-        {this.state.jobList ? <JobList jobs={this.state.jobList} /> : ""}
+        <div className="container">
+          {this.state.jobList ? <JobList jobs={this.state.jobList} /> : ""}
+        </div>
       </div>
     );
   }
