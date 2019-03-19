@@ -6,7 +6,68 @@
   width: 250px;
 }
 
-.colum {
-  width: 25%;
+.customButton {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline: none;
+}
+
+.ghost-button-transition {
+  display: inline-block;
+  width: 200px;
+  padding: 8px;
+  display: flex;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 0px;
+  background-color: #393E45;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+}
+.ghost-button-transition:hover,
+.ghost-button-transition:active {
+  background-color: #66FCF1;
+  color: black;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}
+
+.column {
+  background-color: #1F2833;
+  border-color: #1F2833;
+}
+
+.list {
+  width: 33.33%;
   float: left;
+  background-color: #1F2833;
+}
+
+#titleInput {
+  border-radius: 0px
+}
+
+#descriptionInput {
+  border-radius: 0px
+}
+
+label {
+  color: white
+}
+
+p {
+  color: #C5C6C7
+}
+
+h5 {
+  color: #C5C6C7
 }

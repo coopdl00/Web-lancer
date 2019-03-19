@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import { withAuthenticator } from 'aws-amplify-react'
-import JobList from './components/jobList.js'
+import JobList from './pages/jobList.js'
+import JobPost from './pages/JobPost.js'
+import Home from './pages/home.js'
+import NavBar from './components/NavBar.js'
 import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries'
 import * as mutations from './graphql/mutations'
@@ -10,26 +13,51 @@ import Logo from './assets/logo.png'
 import MyTheme from './assets/MyTheme'
 Amplify.configure(aws_exports);
 
-// #66FCF1
-
 class App extends Component {
 
-  state = {}
+  state = {
+    posting: false,
+    home: true,
+    joblistpage: false
+  }
 
   componentDidMount = async () => {
-    await this.getCurrentUserInformation()
+    this.getCurrentUserInformation()
     this.refreshList()
   }
 
-  createJob = async () => {
-    let obj = {
-      title: "Social Media Website 6",
-      description: "Test description",
-      postedDate: Date.now()
-    }
+  titleUpdate = (e) => {
+    this.setState({title: e.target.value})
+  }
 
-    const newEvent = await API.graphql(graphqlOperation(mutations.createJobs, {input: obj}))
-    console.log(newEvent)
+  descriptionUpdate = (e) => {
+    this.setState({description: e.target.value})
+  }
+
+  toggleState = (param) => {
+    this.setState({
+      posting: false,
+      home: false,
+      joblistpage: false
+    })
+    let obj = {}
+    obj[param] = true
+    this.setState(obj)
+  }
+
+  handlePost = async (e) => {
+    e.preventDefault()
+    let Title = this.state.title
+    let Description = this.state.description
+    let postDate = `${Date.now()}`
+    const input = {
+      title: Title,
+      description: Description,
+      postedDate: postDate
+    }
+    await API.graphql(graphqlOperation(mutations.createJobs, {input: input}))
+    this.toggleState("posting")
+
   }
 
   getCurrentUserInformation = async () => {
@@ -42,9 +70,7 @@ class App extends Component {
     const newEvent = await API.graphql(graphqlOperation(queries.listJobss))
     let array = newEvent.data.listJobss.items
     array.sort(function(a,b){return b.postedDate - a.postedDate})
-    this.setState({
-      jobList: array
-    })
+    this.setState({jobList: array})
 
   }
 
@@ -56,10 +82,15 @@ class App extends Component {
             <img id="Logoimage" src={Logo} alt="logo"/>
           </div>
         </div>
-        <button onClick={this.refreshList} >Refresh Job List</button>
-        <button onClick={this.createJob} >Post job</button>
+        <NavBar toggleState={this.toggleState}/>
         <div className="container">
-          {this.state.jobList ? <JobList jobs={this.state.jobList} /> : ""}
+          {this.state.posting ?
+            <JobPost
+              descriptionUpdate={this.descriptionUpdate}
+              titleUpdate={this.titleUpdate}
+              handlePost={this.handlePost} /> : ""}
+          {this.state.joblistpage ? <JobList jobs={this.state.jobList} refreshList={this.refreshList}/> : ""}
+          {this.state.home ? <Home/> : ""}
         </div>
       </div>
     );
