@@ -33,6 +33,8 @@ export const onCreateJobs = `subscription OnCreateJobs {
     technologies
     bidedBy
     postedDate
+    postedBy
+    contactInfo
   }
 }
 `;
@@ -44,6 +46,8 @@ export const onUpdateJobs = `subscription OnUpdateJobs {
     technologies
     bidedBy
     postedDate
+    postedBy
+    contactInfo
   }
 }
 `;
@@ -55,6 +59,8 @@ export const onDeleteJobs = `subscription OnDeleteJobs {
     technologies
     bidedBy
     postedDate
+    postedBy
+    contactInfo
   }
 }
 `;

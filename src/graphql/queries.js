@@ -32,6 +32,8 @@ export const getJobs = `query GetJobs($id: ID!) {
     technologies
     bidedBy
     postedDate
+    postedBy
+    contactInfo
   }
 }
 `;
@@ -48,6 +50,8 @@ export const listJobss = `query ListJobss(
       technologies
       bidedBy
       postedDate
+      postedBy
+      contactInfo
     }
     nextToken
   }

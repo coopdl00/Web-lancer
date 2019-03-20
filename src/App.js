@@ -19,7 +19,9 @@ class App extends Component {
     home: true,
     joblistpage: false,
     sidenav: false,
-    grid: false
+    grid: false,
+    technologies: "Website",
+    errorMsg: ""
   }
 
   componentDidMount = async () => {
@@ -35,8 +37,11 @@ class App extends Component {
     this.setState({description: e.target.value})
   }
 
-  toggleState = (param, e) => {
-    e.preventDefault()
+  contactInfoUpdate = (e) => {
+    this.setState({contactInfo: e.target.value})
+  }
+
+  toggleState = (param) => {
     this.setState({
       posting: false,
       home: false,
@@ -52,14 +57,22 @@ class App extends Component {
     let Title = this.state.title
     let Description = this.state.description
     let postDate = `${Date.now()}`
+    let contactInfo = this.state.contactInfo
     const input = {
       title: Title,
       description: Description,
-      postedDate: postDate
+      postedDate: postDate,
+      postedBy: this.state.userInfo.username,
+      technologies: this.state.technologies,
+      contactInfo: contactInfo
     }
-    await API.graphql(graphqlOperation(mutations.createJobs, {input: input}))
-    this.toggleState("posting")
-
+    if (Title && Description && this.state.technologies !== "" && contactInfo) {
+      await API.graphql(graphqlOperation(mutations.createJobs, {input: input}))
+      this.toggleState("joblistpage")
+      this.refreshList()
+    } else {
+      this.setState({errorMsg: "Required"})
+    }
   }
 
   getCurrentUserInformation = async () => {
@@ -72,7 +85,9 @@ class App extends Component {
     const newEvent = await API.graphql(graphqlOperation(queries.listJobss))
     let array = newEvent.data.listJobss.items
     array.sort(function(a,b){return b.postedDate - a.postedDate})
-    this.setState({jobList: array})
+    this.setState({
+      jobList: array
+    })
   }
 
   toggleSideNav = () => {
@@ -83,6 +98,10 @@ class App extends Component {
 
   toggleGrid = () => {
     this.setState({grid: !this.state.grid})
+  }
+
+  dropdownUpdate = (param) => {
+    this.setState({technologies: param})
   }
 
   render() {
@@ -110,7 +129,11 @@ class App extends Component {
               <JobPost
                 descriptionUpdate={this.descriptionUpdate}
                 titleUpdate={this.titleUpdate}
-                handlePost={this.handlePost} /> : ""}
+                contactInfoUpdate={this.contactInfoUpdate}
+                handlePost={this.handlePost}
+                dropdownUpdate={this.dropdownUpdate}
+                technologies={this.state.technologies}
+                errorMsg={this.state.errorMsg} /> : ""}
             {this.state.joblistpage ? <JobList toggleGrid={this.toggleGrid} grid={this.state.grid} jobs={this.state.jobList} refreshList={this.refreshList}/> : ""}
             {this.state.home ? <Home/> : ""}
           </div>

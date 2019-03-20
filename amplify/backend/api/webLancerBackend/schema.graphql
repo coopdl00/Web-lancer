@@ -8,7 +8,9 @@ type jobs @model {
   id: ID!
   title: String!
   description: String!
-  technologies: [String]
+  technologies: String
   bidedBy: [String]
   postedDate: String!
+  postedBy: String!
+  contactInfo: String!
 }
