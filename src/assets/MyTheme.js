@@ -22,14 +22,16 @@ export default {
       'color' : '#C5C6C7'
     },
     button: {
-      'backgroundColor' : '#45A29E'
+      'backgroundColor' : '#66FCF1'
     },
     navBar: {
       'backgroundColor' : '#393E45',
-      'border' : '0px'
+      'border' : '0px',
+      'width' : '80%',
+      'float' : 'right'
     },
     navButton: {
-      'backgroundColor' : '#45A29E'
+      'backgroundColor' : '#66FCF1'
     },
     navItem: {
       'color' : '#C5C6C7'

@@ -8,11 +8,11 @@ class jobList extends Component {
     return (
       <div>
         <div className="row">
-          <JobListTools refreshList={this.props.refreshList}/>
+          <JobListTools toggleGrid={this.props.toggleGrid} grid={this.props.grid} refreshList={this.props.refreshList}/>
         </div>
         <div className="row">
           <div className="col-xs-12">
-            {this.props.jobs.map((job, i) => <JobTile key={i} job={job} />)}
+            {this.props.jobs.map((job, i) => <JobTile grid={this.props.grid} key={i} job={job} />)}
           </div>
         </div>
       </div>

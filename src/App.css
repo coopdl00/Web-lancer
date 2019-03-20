@@ -15,10 +15,10 @@
     outline: none;
 }
 
-.ghost-button-transition {
+.custom-ghost-button-transition {
   display: inline-block;
-  width: 200px;
   padding: 8px;
+  width: 60%;
   display: flex;
   -webkit-border-radius: 10px;
   border-radius: 10px;
@@ -26,7 +26,38 @@
   align-items: center;
   color: white;
   border: 0px;
-  background-color: #393E45;
+  background-color: #111111;
+  text-align: center;
+  outline: none;
+  text-decoration: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+}
+.custom-ghost-button-transition:hover,
+.custom-ghost-button-transition:active {
+  background-color: #66FCF1;
+  color: black;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}
+.custom-ghost-button-transition:focus {
+  outline: 0;
+  background-color: #66FCF1;
+  color: black
+}
+
+.ghost-button-transition {
+  display: inline-block;
+  padding: 8px;
+  width: 90%;
+  display: flex;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  border: 0px;
+  background-color: #111111;
   text-align: center;
   outline: none;
   text-decoration: none;
@@ -40,6 +71,11 @@
   transition: background-color 0.3s ease-in,
               color 0.3s ease-in;
 }
+.ghost-button-transition:focus {
+  outline: 0;
+  background-color: #66FCF1;
+  color: black
+}
 
 .column {
   background-color: #1F2833;
@@ -47,9 +83,131 @@
 }
 
 .list {
-  width: 33.33%;
+  width: 100%;
   float: left;
   background-color: #1F2833;
+}
+
+.grid {
+  width: 50%;
+  float: left;
+  background-color: #1F2833;
+}
+
+.hamburger-div {
+  position: fixed;
+}
+
+.hamburger {
+  width: 35px;
+  height: 5px;
+  background-color: #66FCF1;
+  margin: 6px 0;
+}
+
+.sidenav {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 0; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  transition: 0.3s;
+}
+
+.sidenav button {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+.sidenav button:hover {
+  color: white;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  background-color: #111;
+  color: white;
+  border-width: 0px;
+}
+
+.sidenav-extended {
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 200px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  border-right: 5px solid #66FCF1;
+  transition: 0.3s;
+}
+
+.sidenav-extended button {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+}
+
+.sidenav-extended button:hover {
+  color: white;
+}
+
+.sidenav-extended .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  background-color: #111;
+  color: white;
+  border-width: 0px;
+}
+
+.closebtn:focus {
+  outline: 0;
+}
+
+.main-extended {
+  margin-left: 200px;
+  padding: 0px 10px;
+  border-color: white;
+  transition: 0.3s;
+}
+
+.main {
+  margin-left: 0px;
+  padding: 0px 10px;
+  border-color: white;
+  transition: 0.3s;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    width: 10%
+  }
+  .sidenav button {font-size: 18px;}
+  .sidenav-extended {
+    padding-top: 15px;
+    width: 10%
+  }
+  .sidenav-extended button {font-size: 18px;}
 }
 
 #titleInput {
@@ -58,6 +216,11 @@
 
 #descriptionInput {
   border-radius: 0px
+}
+
+#customnavbar {
+  background-color: #1F2833;
+  border-radius: 10px
 }
 
 label {

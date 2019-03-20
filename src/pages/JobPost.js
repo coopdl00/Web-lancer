@@ -4,8 +4,8 @@ class JobPost extends Component {
 
   render() {
     return (
-      <div>
-        <form>
+      <div className="row">
+        <form className="offset-md-3 col-md-6">
           <div className="form-group">
             <label htmlFor="titleInput">Job Title</label>
             <input type="text" onChange={(e) => this.props.titleUpdate(e)} className="form-control" id="titleInput" placeholder="Enter Title" required></input>
@@ -14,7 +14,7 @@ class JobPost extends Component {
             <label htmlFor="descriptionInput">Description</label>
             <textarea type="text" onChange={(e) => this.props.descriptionUpdate(e)} className="form-control" id="descriptionInput" placeholder="Enter a description" required></textarea>
           </div>
-          <button type="submit" onClick={(e) => this.props.handlePost(e)} className="btn btn-primary">Submit</button>
+          <button type="submit" onClick={(e) => this.props.handlePost(e)} className="mx-auto custom-ghost-button-transition">Submit</button>
         </form>
       </div>
     )

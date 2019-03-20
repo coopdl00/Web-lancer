@@ -4,7 +4,6 @@ import { withAuthenticator } from 'aws-amplify-react'
 import JobList from './pages/jobList.js'
 import JobPost from './pages/JobPost.js'
 import Home from './pages/home.js'
-import NavBar from './components/NavBar.js'
 import Amplify, { Auth, API, graphqlOperation } from 'aws-amplify';
 import * as queries from './graphql/queries'
 import * as mutations from './graphql/mutations'
@@ -18,7 +17,9 @@ class App extends Component {
   state = {
     posting: false,
     home: true,
-    joblistpage: false
+    joblistpage: false,
+    sidenav: false,
+    grid: false
   }
 
   componentDidMount = async () => {
@@ -34,7 +35,8 @@ class App extends Component {
     this.setState({description: e.target.value})
   }
 
-  toggleState = (param) => {
+  toggleState = (param, e) => {
+    e.preventDefault()
     this.setState({
       posting: false,
       home: false,
@@ -71,26 +73,47 @@ class App extends Component {
     let array = newEvent.data.listJobss.items
     array.sort(function(a,b){return b.postedDate - a.postedDate})
     this.setState({jobList: array})
+  }
 
+  toggleSideNav = () => {
+    this.setState({
+      sidenav: !this.state.sidenav
+    })
+  }
+
+  toggleGrid = () => {
+    this.setState({grid: !this.state.grid})
   }
 
   render() {
     return (
       <div className="App" id="Logo">
-        <div className="container">
-          <div className="text-center">
-            <img id="Logoimage" src={Logo} alt="logo"/>
-          </div>
+        <div className="hamburger-div ml-3 pt-3" onClick={this.toggleSideNav}>
+          <div className="hamburger"></div>
+          <div className="hamburger"></div>
+          <div className="hamburger"></div>
         </div>
-        <NavBar toggleState={this.toggleState}/>
-        <div className="container">
-          {this.state.posting ?
-            <JobPost
-              descriptionUpdate={this.descriptionUpdate}
-              titleUpdate={this.titleUpdate}
-              handlePost={this.handlePost} /> : ""}
-          {this.state.joblistpage ? <JobList jobs={this.state.jobList} refreshList={this.refreshList}/> : ""}
-          {this.state.home ? <Home/> : ""}
+        <div className={this.state.sidenav ? "sidenav-extended" : "sidenav"}>
+          <button className="closebtn" onClick={this.toggleSideNav}>&times;</button>
+          <button className="ghost-button-transition mt-5 my-2 mx-auto" onClick={(e) => this.toggleState('home', e)}>Home</button>
+          <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => this.toggleState('joblistpage', e)}>Job Listings</button>
+          <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => this.toggleState('posting', e)}>Post a Job</button>
+        </div>
+        <div className={this.state.sidenav ? "main-extended" : "main"}>
+          <div className="container">
+            <div className="text-center">
+              <img id="Logoimage" src={Logo} alt="logo"/>
+            </div>
+          </div>
+          <div className="container">
+            {this.state.posting ?
+              <JobPost
+                descriptionUpdate={this.descriptionUpdate}
+                titleUpdate={this.titleUpdate}
+                handlePost={this.handlePost} /> : ""}
+            {this.state.joblistpage ? <JobList toggleGrid={this.toggleGrid} grid={this.state.grid} jobs={this.state.jobList} refreshList={this.refreshList}/> : ""}
+            {this.state.home ? <Home/> : ""}
+          </div>
         </div>
       </div>
     );
