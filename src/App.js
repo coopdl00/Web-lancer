@@ -114,9 +114,18 @@ class App extends Component {
         </div>
         <div className={this.state.sidenav ? "sidenav-extended" : "sidenav"}>
           <button className="closebtn" onClick={this.toggleSideNav}>&times;</button>
-          <button className="ghost-button-transition mt-5 my-2 mx-auto" onClick={(e) => this.toggleState('home', e)}>Home</button>
-          <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => this.toggleState('joblistpage', e)}>Job Listings</button>
-          <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => this.toggleState('posting', e)}>Post a Job</button>
+          <button className="ghost-button-transition mt-5 my-2 mx-auto" onClick={(e) => {
+            this.toggleState('home', e)
+            this.toggleSideNav()
+          }}>Home</button>
+          <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => {
+            this.toggleState('joblistpage', e)
+            this.toggleSideNav()
+          }}>Job Listings</button>
+          <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => {
+            this.toggleState('posting', e)
+            this.toggleSideNav()
+          }}>Post a Job</button>
         </div>
         <div className={this.state.sidenav ? "main-extended" : "main"}>
           <div className="container">
