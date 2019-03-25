@@ -7,6 +7,16 @@
     outline: none;
 }
 
+.joblistButton {
+  background-color: #111111;
+  color: white;
+  cursor: pointer;
+}
+
+.joblistButton:focus {
+  outline: 0
+}
+
 .custom-ghost-button-transition {
   display: inline-block;
   padding: 8px;
@@ -36,6 +46,31 @@
   outline: 0;
   background-color: #66FCF1;
   color: black
+}
+
+.jobList-ghost-button-transition {
+  margin: 2px;
+  padding: 8px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  color: white;
+  border: 0px;
+  background-color: #111111;
+  outline: none;
+  transition: background-color 0.2s ease-out,
+              color 0.2s ease-out;
+}
+.jobList-ghost-button-transition:hover,
+.jobList-ghots-button-transition:active {
+  background-color: #66FCF1;
+  color: white;
+  transition: background-color 0.3s ease-in,
+              color 0.3s ease-in;
+}
+.jobList-ghost-button-transition:focus {
+  outline: 0;
+  background-color: #66FCF1;
+  color: black;
 }
 
 .ghost-button-transition {
@@ -71,6 +106,7 @@
 
 .column {
   background-color: #111111;
+  min-height: 300px;
   border-color: #1F2833;
 }
 
@@ -188,7 +224,6 @@
   transition: 0.3s;
 }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
   .sidenav {
     padding-top: 15px;
@@ -237,4 +272,16 @@ h5 {
 
 small {
   color: #C5C6C7
+}
+
+@media only screen and (max-width: 926px) {
+    .grid-button {
+        display: none;
+    }
+    .list {
+      width: 100%
+    }
+    .grid {
+      width: 100%
+    }
 }

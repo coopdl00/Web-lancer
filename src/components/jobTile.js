@@ -10,12 +10,11 @@ class JobTile extends Component {
             <h5 className="card-title">{this.props.job.title}</h5>
             <p className="card-text">{this.props.job.description}</p>
             <p className="card-text">{this.props.job.technologies}</p>
-            <small className="card-text">Posted By: {this.props.job.postedBy}</small>
+            <small className="pt-3 card-text">Posted By: {this.props.job.postedBy}</small>
           </div>
         </div>
       </div>
     )
   }
-
 }
 export default JobTile;
