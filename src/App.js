@@ -18,6 +18,7 @@ class App extends Component {
     posting: false,
     home: true,
     joblistpage: false,
+    editing: false,
     sidenav: false,
     grid: false,
     technologies: "Website",
@@ -37,15 +38,12 @@ class App extends Component {
     this.setState({description: e.target.value})
   }
 
-  contactInfoUpdate = (e) => {
-    this.setState({contactInfo: e.target.value})
-  }
-
   toggleState = (param) => {
     this.setState({
       posting: false,
       home: false,
-      joblistpage: false
+      joblistpage: false,
+      editing: false
     })
     let obj = {}
     obj[param] = true
@@ -57,7 +55,7 @@ class App extends Component {
     let Title = this.state.title
     let Description = this.state.description
     let postDate = `${Date.now()}`
-    let contactInfo = this.state.contactInfo
+    let contactInfo = this.state.userInfo.attributes.email
     const input = {
       title: Title,
       description: Description,
@@ -70,6 +68,37 @@ class App extends Component {
       await API.graphql(graphqlOperation(mutations.createJobs, {input: input}))
       this.toggleState("joblistpage")
       this.refreshList()
+      this.setState({errorMsg: ""})
+    } else {
+      this.setState({errorMsg: "Required"})
+    }
+  }
+
+  handleDelete = async (id) => {
+    let itemDetails = {id: id}
+    const response = await API.graphql(graphqlOperation(mutations.deleteJobs, { input: itemDetails }))
+    console.log(response)
+    this.refreshList()
+  }
+
+  handleEdit = async (e) => {
+    e.preventDefault()
+    let Title = this.state.title
+    let Description = this.state.description
+    let contactInfo = this.state.userInfo.attributes.email
+    const input = {
+      title: Title,
+      description: Description,
+      postedBy: this.state.userInfo.username,
+      technologies: this.state.technologies,
+      contactInfo: contactInfo
+    }
+    console.log(input)
+    if (Title && Description && this.state.technologies !== "" && contactInfo) {
+      await API.graphql(graphqlOperation(mutations.createJobs, {input: input}))
+      this.toggleState("joblistpage")
+      this.refreshList()
+      this.setState({errorMsg: ""})
     } else {
       this.setState({errorMsg: "Required"})
     }
@@ -115,17 +144,17 @@ class App extends Component {
         <div className={this.state.sidenav ? "sidenav-extended" : "sidenav"}>
           <button className="closebtn" onClick={this.toggleSideNav}>&times;</button>
           <button className="ghost-button-transition mt-5 my-2 mx-auto" onClick={(e) => {
-            this.toggleState('home', e)
+            this.toggleState('home')
             this.toggleSideNav()
           }}>Home</button>
           <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => {
-            this.toggleState('joblistpage', e)
+            this.toggleState('joblistpage')
             this.toggleSideNav()
-          }}>Job Listings</button>
+          }}>Project Listings</button>
           <button className="ghost-button-transition my-2 mx-auto" onClick={(e) => {
-            this.toggleState('posting', e)
+            this.toggleState('posting')
             this.toggleSideNav()
-          }}>Post a Job</button>
+          }}>Post a Project</button>
         </div>
         <div className={this.state.sidenav ? "main-extended" : "main"}>
           <div className="container">
@@ -143,7 +172,16 @@ class App extends Component {
                 dropdownUpdate={this.dropdownUpdate}
                 technologies={this.state.technologies}
                 errorMsg={this.state.errorMsg} /> : ""}
-            {this.state.joblistpage ? <JobList toggleGrid={this.toggleGrid} grid={this.state.grid} jobs={this.state.jobList} refreshList={this.refreshList}/> : ""}
+            {this.state.joblistpage ?
+              <JobList
+                toggleGrid={this.toggleGrid}
+                handleEdit={this.handleEdit}
+                toggleState={this.toggleState}
+                grid={this.state.grid}
+                username={this.state.userInfo.username}
+                handleDelete={this.handleDelete}
+                jobs={this.state.jobList}
+                refreshList={this.refreshList}/> : ""}
             {this.state.home ? <Home/> : ""}
           </div>
         </div>
