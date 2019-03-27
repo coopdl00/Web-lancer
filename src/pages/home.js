@@ -10,7 +10,7 @@ class Home extends Component {
         <h4 style={{color: "white"}}>Getting Started</h4>
         <p>As a <b>Project Manager</b> you can post a new Project on the Post a Project tab. From there you can input all of your Project information. When you're finished just press submit and wait for someone to contact you.</p>
         <p>As a <b>Developer</b> you can go straight into the Project List tab. From there you can look for Projects that interest you.</p>
-        Happy Coding!
+        <p>Happy Coding!</p>
       </div>
     )
   }
